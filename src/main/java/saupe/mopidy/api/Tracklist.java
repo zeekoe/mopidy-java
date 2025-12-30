@@ -5,7 +5,6 @@ import com.google.gson.JsonObject;
 
 import saupe.mopidy.model.TlTrack;
 import saupe.mopidy.model.Track;
-import lombok.extern.slf4j.Slf4j;
 import org.jetbrains.annotations.Nullable;
 
 /*
@@ -13,7 +12,6 @@ import org.jetbrains.annotations.Nullable;
  * TODO: filter
  */
 
-@Slf4j
 public class Tracklist extends Api {
     public Tracklist(Api parent) {
         super(parent, "tracklist.");

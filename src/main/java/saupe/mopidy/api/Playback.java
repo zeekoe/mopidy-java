@@ -5,13 +5,11 @@ import com.google.gson.JsonElement;
 import saupe.mopidy.model.PlaybackState;
 import saupe.mopidy.model.TlTrack;
 import saupe.mopidy.model.Track;
-import lombok.extern.slf4j.Slf4j;
 
 /*
  * See: https://github.com/mopidy/mopidy/blob/develop/mopidy/core/playback.py
  */
 
-@Slf4j
 public class Playback extends Api {
     protected Playback(Api parent) {
         super(parent, "playback.");

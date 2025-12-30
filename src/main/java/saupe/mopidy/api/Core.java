@@ -1,15 +1,11 @@
 package saupe.mopidy.api;
 
 import saupe.mopidy.MopidyClient;
-import lombok.Getter;
-import lombok.extern.slf4j.Slf4j;
 
 /*
  * See: https://github.com/mopidy/mopidy/blob/develop/mopidy/core/actor.py
  */
 
-@Slf4j
-@Getter
 public class Core extends Api {
 	private final Library 	library 	= new Library(this);
 	private final History 	history 	= new History(this);
@@ -38,5 +34,29 @@ public class Core extends Api {
 	 */
 	public Call<String> getVersion() {
 		return createCall("get_version", String.class);
+	}
+
+	public Library getLibrary() {
+		return library;
+	}
+
+	public History getHistory() {
+		return history;
+	}
+
+	public Mixer getMixer() {
+		return mixer;
+	}
+
+	public Playback getPlayback() {
+		return playback;
+	}
+
+	public Tracklist getTracklist() {
+		return tracklist;
+	}
+
+	public Playlists getPlaylists() {
+		return playlists;
 	}
 }

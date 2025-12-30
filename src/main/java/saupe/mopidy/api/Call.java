@@ -5,20 +5,20 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.reflect.TypeToken;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import saupe.mopidy.MopidyClient;
 import saupe.mopidy.ResponseHandler;
 import saupe.mopidy.misc.JSONKeywords;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.extern.slf4j.Slf4j;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@Slf4j
 public class Call<T> {
 	public static final String JSONRPC_VERSION = "2.0";
-	private static Gson gson = new Gson();
+	private static final Gson gson = new Gson();
+
+	private static final Logger log = LoggerFactory.getLogger(Call.class);
 
 	private final MopidyClient client;
 
@@ -30,8 +30,11 @@ public class Call<T> {
 	/**
 	 * The request data
 	 */
-	@Getter
 	private JsonObject request;
+
+	public JsonObject getRequest() {
+		return request;
+	}
 
 	/**
 	 * The params field of the request
@@ -42,15 +45,24 @@ public class Call<T> {
 	/**
 	 * When this call was dispatched
 	 */
-	@Getter
-	@Setter
 	private long timestamp;
+
+	public long getTimestamp() {
+		return timestamp;
+	}
+
+	public void setTimestamp(long timestamp) {
+		this.timestamp = timestamp;
+	}
 
 	protected List<ResponseHandler<T>> responseHandlers = new ArrayList<>();
 	private boolean responseReceived = false;
 
-	@Getter
 	private int id;
+
+	public int getId() {
+		return id;
+	}
 
 	public Call(String method, MopidyClient client) {
 		this.client = client;

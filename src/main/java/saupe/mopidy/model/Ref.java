@@ -1,8 +1,5 @@
 package saupe.mopidy.model;
 
-import lombok.Getter;
-import lombok.Setter;
-
 /*
  * Model to represent URI references with a human friendly name and type attached.
  * This is intended for use a lightweight object "free" of metadata that can be passed around instead of using full
@@ -11,8 +8,6 @@ import lombok.Setter;
  * See: https://github.com/mopidy/mopidy/blob/develop/mopidy/models/__init__.py
  */
 
-@Getter
-@Setter
 public class Ref extends Base {
 	public static final String TYPE_ALBUM 		= "album";
 	public static final String TYPE_ARTIST 		= "artist";
@@ -55,5 +50,29 @@ public class Ref extends Base {
 	@Override
 	public String toString() {
 		return "Ref[" + type + ":" + name + ":<" + uri + ">]";
+	}
+
+	public String getUri() {
+		return uri;
+	}
+
+	public void setUri(String uri) {
+		this.uri = uri;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
 	}
 }

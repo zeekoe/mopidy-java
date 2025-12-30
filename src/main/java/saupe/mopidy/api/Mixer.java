@@ -1,12 +1,9 @@
 package saupe.mopidy.api;
 
-import lombok.extern.slf4j.Slf4j;
-
 /*
  * See: https://github.com/mopidy/mopidy/blob/develop/mopidy/core/mixer.py
  */
 
-@Slf4j
 public class Mixer extends Api {
     protected Mixer(Api parent) {
         super(parent, "mixer.");

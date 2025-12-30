@@ -2,18 +2,17 @@ package saupe.mopidy.api;
 
 import saupe.mopidy.model.Playlist;
 import saupe.mopidy.model.Ref;
-import lombok.extern.slf4j.Slf4j;
 
 /*
  * See: https://github.com/mopidy/mopidy/blob/develop/mopidy/core/history.py
  * TODO: lookup, refresh, save
  */
 
-@Slf4j
 public class Playlists extends Api {
     protected Playlists(Api parent) {
         super(parent, "playlists.");
     }
+
 
     /**
      * Get the list of URI schemes that support playlists.

@@ -11,22 +11,22 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import saupe.mopidy.api.*;
 import saupe.mopidy.events.*;
 import saupe.mopidy.events.EventListener;
 import saupe.mopidy.misc.JSONKeywords;
 import saupe.mopidy.model.PlaybackState;
-import lombok.Getter;
-import lombok.extern.slf4j.Slf4j;
 import org.java_websocket.client.WebSocketClient;
 import org.java_websocket.enums.ReadyState;
 import org.java_websocket.handshake.ServerHandshake;
 import saupe.mopidy.api.Call;
 import saupe.mopidy.api.Core;
 
-@Slf4j
 public class MopidyClient extends WebSocketClient {
-    @Getter
+    private static final Logger log = LoggerFactory.getLogger(MopidyClient.class);
+
     private final Core core = new Core(this);
 
     // Calls

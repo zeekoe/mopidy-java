@@ -8,14 +8,12 @@ import saupe.mopidy.misc.JSONKeywords;
 import saupe.mopidy.model.Image;
 import saupe.mopidy.model.Ref;
 import saupe.mopidy.model.Track;
-import lombok.extern.slf4j.Slf4j;
 
 /*
  * See: https://github.com/mopidy/mopidy/blob/develop/mopidy/core/library.py
  * TODO: get_distinct, refresh, search
  */
 
-@Slf4j
 public class Library extends Api {
     protected Library(Api parent) {
         super(parent, "library.");

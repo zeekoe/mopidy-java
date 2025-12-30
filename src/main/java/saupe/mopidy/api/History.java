@@ -7,15 +7,11 @@ import com.google.gson.JsonElement;
 import java.util.LinkedList;
 
 import saupe.mopidy.model.Ref;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.extern.slf4j.Slf4j;
 
 /*
  * See: https://github.com/mopidy/mopidy/blob/develop/mopidy/core/history.py
  */
 
-@Slf4j
 public class History extends Api {
 	private static Gson gson = new Gson();
 
@@ -57,15 +53,6 @@ public class History extends Api {
 		}.setResultType(HistoryItem[].class);
 	}
 
-	@AllArgsConstructor
-	@Getter
-	public static class HistoryItem {
-		private final long timestamp;
-		private final Ref track;
-
-		@Override
-		public String toString() {
-			return "[" + timestamp + "," + track + "]";
-		}
+	public record HistoryItem(long timestamp,Ref track) {
 	}
 }

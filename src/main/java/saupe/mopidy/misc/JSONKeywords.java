@@ -1,10 +1,9 @@
 package saupe.mopidy.misc;
 
-import lombok.AccessLevel;
-import lombok.NoArgsConstructor;
-
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class JSONKeywords {
+    public JSONKeywords() {
+    }
+
     public static String TITLE          = "title";
     public static String TIME_POSITION  = "time_position";
     public static String TL_TRACK       = "tl_track";
